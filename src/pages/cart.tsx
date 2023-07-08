@@ -12,7 +12,11 @@ import MainLayout from "@/layouts/MainLayout";
 import { useState } from "react";
 import CartProduct from "@/components/CartProduct";
 import { CreditCardIcon } from "@heroicons/react/24/outline";
-
+// Action type definition
+interface MyAction {
+  type: string;
+  payload?: any; // Make the payload argument optional
+}
 function Cart({ categories }: any) {
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
@@ -22,7 +26,10 @@ function Cart({ categories }: any) {
   const dispatch = useDispatch();
   console.log('items',items);
   const clearCart =()=>{
-    dispatch(clearBasket())
+    const action: MyAction = {
+      type: 'MY_ACTION',
+    };
+    dispatch(clearBasket(null))
   }
   return (
     <MainLayout categories={categories}>
