@@ -1,7 +1,4 @@
 ## Project Install
-
-First, run the development server:
-
 ```bash
 npm install
 
